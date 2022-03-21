@@ -621,7 +621,7 @@ public class Solver {
 	}
 	
 	
-	public char[][] roomPath(){ //leave as void??
+	public void roomPath(){ //leave as void??
 		path();
 		finalPath = new ArrayList<Tile>();
 		ArrayList<Tile> direct = new ArrayList<Tile>();
@@ -664,14 +664,6 @@ public class Solver {
 				}
 			}
 		}
-		
-		/**/
-		for(int i = 0; i < pathmap.length; i++) {
-			for(int j = 0; j < pathmap[0].length; j++) {
-				System.out.print(pathmap[i][j] + "");
-			}
-			System.out.println();
-		}
 				
 		// coordinate path
 		pathcoords = new String[finalPath.size()][3]; 		
@@ -683,7 +675,6 @@ public class Solver {
 			//System.out.println(finalPath.get(i).getTile());
 		}
 		
-		return pathmap;
 		
 	}
 	
@@ -793,6 +784,16 @@ public class Solver {
 	
 	public Map getMap() {
 		return newMap;
+	}
+	
+	public char[][] getTextMap(){
+		for(int i = 0; i < pathmap.length; i++) {
+			for(int j = 0; j < pathmap[0].length; j++) {
+				System.out.print(pathmap[i][j] + "");
+			}
+			System.out.println();
+		}
+		return pathmap;
 	}
 	
 	public String[][] getPathCoordsMap() {
