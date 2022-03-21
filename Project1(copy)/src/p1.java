@@ -2,14 +2,36 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class P1 {
+public class p1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		long startTime = System.currentTimeMillis();
 		boolean q, s, o, t, in, out, help;
 		q = false; s = false; o = false; t = false; in = false; out = false; help = false;
-		for(int i = 0; i < args.length; i++) {
+		int c = 0;
+		//arguments should be boolean?
+		for(int i = 0; i < args.length -1; i++) {
+			for(int j = i+1; j < args.length -1; i++) {
+				if(args[i].equals("Queue") && (args[j].equals("Stack") || args[j].equals("Opt"))){
+					System.out.println("Multiple of the following switches is set: "+
+							"Queue, Stack, Opt");
+					System.exit(-1);
+				}
+				if(args[i].equals("Stack") && (args[j].equals("Queue") || args[j].equals("Opt"))){
+					System.out.println("Multiple of the following switches is set: "+
+							"Queue, Stack, Opt");
+					System.exit(-1);
+				}
+				if(args[i].equals("Opt") && (args[j].equals("Stack") || args[j].equals("Queue"))){
+					System.out.println("Multiple of the following switches is set: "+
+							"Queue, Stack, Opt");
+					System.exit(-1);
+				}
+			}
+		}
+		
+		for(int i = 0; i < args.length -1; i++) {
 			if(args[i].equals("Queue")) {
 				q = true;
 			}
@@ -22,10 +44,10 @@ public class P1 {
 			if(args[i].equals("Time")) {
 				t = true;
 			}
-			if(args[i].equals("Incoordinate")) {
+			if(args[i].equals("InCoordinate")) {
 				in = true;
 			}
-			if(args[i].equals("Outcoordinate")) {
+			if(args[i].equals("OutCoordinate")) {
 				out = true;
 			}
 			if(args[i].equals("Help")) {
@@ -36,8 +58,7 @@ public class P1 {
 		Map m = new Map();
 		Scanner scanner;
 		//how is file chosen??
-		File f = new File("oliviaCoordinateMap3.txt");
-		File g = new File("oliviaMap3.txt");
+		File f = new File(args[args.length-1]);
 		
 		String helpInfo = "This program is supposed to process maps and return the map with the path marked" 
 				+"\n"+ "SWITCHES:" +"\n"+ "Stack: uses the stack based approach to solve for the path"+"\n"+
@@ -50,11 +71,12 @@ public class P1 {
 		
 		if(help) {
 			System.out.println(helpInfo);
+			System.exit(-1);
 		}
 		
 		try {
 			scanner = new Scanner(f);
-			Solver p = new Solver(scanner, g);
+			Solver p = new Solver(scanner, f);
 			if(in) {
 				p.getMap().getCharMap();
 			} else {

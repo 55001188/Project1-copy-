@@ -55,6 +55,12 @@ public class Map {
 			cols = scanner.nextInt();
 			rooms = scanner.nextInt();
 			
+			if(rows < 0 || cols < 0 || rooms < 0) {
+				System.out.println("either the row number, column number, or number of rooms"+
+						" is a negative numeber");
+				System.exit(-1);
+			}
+			
 			//take in the cols and # of rooms
 			map = new char[rows*rooms][cols];
 			int i = 0;
@@ -93,6 +99,12 @@ public class Map {
 			cols = scanner.nextInt();
 			rooms = scanner.nextInt();
 			
+			if(rows < 0 || cols < 0 || rooms < 0) {
+				System.out.println("either the row number, column number, or number of rooms"+
+						" is a negative numeber");
+				System.exit(-1);
+			}
+			
 			//take in the cols and # of rooms
 			map = new char[rows*rooms][cols];
 			for(int i = 0; i < map.length; i++) { //initialize map with "."
@@ -109,11 +121,13 @@ public class Map {
 				
 				// if ints or chars do not match proper format an error is given
 				if(r >= rows*rooms || r < 0 || col >= cols || col < 0) { 
-					System.out.println("error: out of bounds");
+					System.out.println("error: coordinates are out of bounds");
+					System.exit(-1);
 				} else {
 					if(ch != '|' && ch != '@' && ch != 'K' &&
 							ch != 'C' && ch != '.') {
-						System.out.println("error at row: " +r+ " and col: "+col);
+						System.out.println("illegal characters");
+						System.exit(-1);
 					} else {
 						map[r][col] = ch;
 					}
