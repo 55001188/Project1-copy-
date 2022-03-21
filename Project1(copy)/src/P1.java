@@ -15,7 +15,6 @@ public class P1 {
 		//
 		//oliviaMap3
 		
-		/**/
 		try {
 			scanner = new Scanner(f);
 			Solver p = new Solver(scanner, g);
