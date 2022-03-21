@@ -1,0 +1,39 @@
+use stack or queue to gather data on map
+find kirby on map
+find cake on map
+if more than 1 room, check first room for cake
+if no cake, check for door
+find shortest route
+recreate map with route labeled in "+"
+create a coord map for only route
+if can't access cake, print "The cake is a lie."
+
+***
+Your program needs to support the following command line arguments: (a switch is set if it appears on the command line)
+
+--Stack (boolean) If this switch is set, use the stack-based approach
+--Queue (boolean) If this switch is set, use the queue-based approach
+--Opt (boolean) If this switch is set, find the shortest path
+--Time (boolean) If this switch is set, print the runtime of the program as described above.
+--Incoordinate (boolean) If this switch is set, the input file is in the coordinate-based system. 
+							If the switch is not set, the input file is in the text-map format.
+--Outcoordinate (boolean) If this switch is set, the output file is in the coordinate-based system. 
+							If the switch is not set, the output file is in the text-map format.
+--Help (boolean) If this switch is set, print out a brief, informative message on what your program 
+				is suppose to do, including what the switches are and what they do. 
+				Your program should then exit(0).
+				
+				
+				
+PROGRESS:
+Map class
+	 char map from map - done
+	 char map from coords - done
+	 coords map creator - done
+	 get rooms - done
+	 get maps (coords and char) - done
+	 
+p1 class
+	 
+	 
+	 
