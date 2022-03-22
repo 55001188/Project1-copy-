@@ -11,46 +11,53 @@ public class p1 {
 		q = false; s = false; o = false; t = false; in = false; out = false; help = false;
 		int c = 0;
 		//arguments should be boolean?
+		/*
+		if(args.length > 2) {
 		for(int i = 0; i < args.length -1; i++) {
 			for(int j = i+1; j < args.length -1; i++) {
-				if(args[i].equals("Queue") && (args[j].equals("Stack") || args[j].equals("Opt"))){
+				if(args[i].equals("--Queue")){
+					if(args[j].equals("--Stack") || args[j].equals("--Opt")){
+						System.out.println("Multiple of the following switches is set: "+
+							"Queue, Stack, Opt");
+						System.exit(-1);
+					}
+					
+				}
+				if(args[i].equals("--Stack") && (args[j].equals("--Queue") || args[j].equals("--Opt"))){
 					System.out.println("Multiple of the following switches is set: "+
 							"Queue, Stack, Opt");
 					System.exit(-1);
 				}
-				if(args[i].equals("Stack") && (args[j].equals("Queue") || args[j].equals("Opt"))){
-					System.out.println("Multiple of the following switches is set: "+
-							"Queue, Stack, Opt");
-					System.exit(-1);
-				}
-				if(args[i].equals("Opt") && (args[j].equals("Stack") || args[j].equals("Queue"))){
+				if(args[i].equals("--Opt") && (args[j].equals("--Stack") || args[j].equals("--Queue"))){
 					System.out.println("Multiple of the following switches is set: "+
 							"Queue, Stack, Opt");
 					System.exit(-1);
 				}
 			}
+			
 		}
+		}*/
 		
 		for(int i = 0; i < args.length -1; i++) {
-			if(args[i].equals("Queue")) {
+			if(args[i].equals("--Queue")) {
 				q = true;
 			}
-			if(args[i].equals("Stack")) {
+			if(args[i].equals("--Stack")) {
 				s = true;
 			}
-			if(args[i].equals("Opt")) {
+			if(args[i].equals("--Opt")) {
 				o = true;
 			}
-			if(args[i].equals("Time")) {
+			if(args[i].equals("--Time")) {
 				t = true;
 			}
-			if(args[i].equals("InCoordinate")) {
+			if(args[i].equals("--Incoordinate")) {
 				in = true;
 			}
-			if(args[i].equals("OutCoordinate")) {
+			if(args[i].equals("--Outcoordinate")) {
 				out = true;
 			}
-			if(args[i].equals("Help")) {
+			if(args[i].equals("--Help")) {
 				help = true;
 			}
 		}
