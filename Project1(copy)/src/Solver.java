@@ -666,12 +666,22 @@ public class Solver {
 		}
 				
 		// coordinate path
-		pathcoords = new String[finalPath.size()][3]; 		
-		//System.out.println();
+		ArrayList<Tile> tempArr = new ArrayList<Tile>();
 		for(int i = 0; i < finalPath.size(); i++) {
-			pathcoords[i][0] = finalPath.get(i).getC() + "";
-			pathcoords[i][1] = finalPath.get(i).getRow() + "";
-			pathcoords[i][2] = finalPath.get(i).getCol() + "";
+			tempArr.add(0, finalPath.get(i));
+		}
+		for(int i = 0; i < tempArr.size(); i++) {
+			if(tempArr.get(i).getC() != '.') {
+				tempArr.remove(i);
+				i--;
+			}
+		}
+		pathcoords = new String[tempArr.size()][3]; 		
+		//System.out.println();
+		for(int i = 0; i < tempArr.size(); i++) {
+			pathcoords[i][0] = "+";
+			pathcoords[i][1] = tempArr.get(i).getRow() + "";
+			pathcoords[i][2] = tempArr.get(i).getCol() + "";
 			//System.out.println(finalPath.get(i).getTile());
 		}
 		
@@ -799,7 +809,7 @@ public class Solver {
 	public String[][] getPathCoordsMap() {
 		for(int i = 0; i < pathcoords.length; i++) {
 			for(int j = 0; j < pathcoords[0].length; j++) {
-				System.out.print(pathcoords[i][j] +"");
+				System.out.print(pathcoords[i][j] +" ");
 			}System.out.println();
 		}
 		return pathcoords;
