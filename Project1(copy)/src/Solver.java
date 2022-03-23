@@ -807,11 +807,17 @@ public class Solver {
 	}
 	
 	public String[][] getPathCoordsMap() {
+		/*
 		for(int i = 0; i < pathcoords.length; i++) {
 			for(int j = 0; j < pathcoords[0].length; j++) {
 				System.out.print(pathcoords[i][j] +" ");
 			}System.out.println();
+		}*/
+		for(int i = 0; i < pathcoords.length; i++) {
+			System.out.print(pathcoords[i][0] +" "+pathcoords[i][1]+" "+pathcoords[i][2]);
+			System.out.println();
 		}
+		
 		return pathcoords;
 	}
 
